@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+/* input[type="date"]::-webkit-calendar-picker-indicator {
   background: transparent;
   bottom: 0;
   color: transparent;
@@ -13,4 +13,4 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   right: 0;
   top: 0;
   width: auto;
-}
+} */
