@@ -1,2 +1,2 @@
 # reservation
-reservation backend.
+restaurant website reservation backend in tRPC.
