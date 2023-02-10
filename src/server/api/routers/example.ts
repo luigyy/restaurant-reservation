@@ -10,7 +10,23 @@ export const exampleRouter = createTRPCRouter({
         greeting: `Hello ${input.text}`,
       };
     }),
-  test: publicProcedure.query(() => {
-    return { greeting: "Hello from test route" };
-  }),
+  createReservation: publicProcedure
+    .input(
+      z.object({
+        name: z.string(),
+        phone: z.string(),
+        people: z.number(),
+        date: z.date(),
+      })
+    )
+    .mutation(({ input, ctx }) => {
+      ctx.prisma.reservation.create({
+        data: {
+          name: input.name,
+          phone: input.phone,
+          people: input.people,
+          date: input.date,
+        },
+      });
+    }),
 });
