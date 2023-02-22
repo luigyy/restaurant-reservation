@@ -13,6 +13,7 @@ interface ReservationI {
 const Home: NextPage = () => {
   // const hello = api.example.hello.useQuery({ text: "world" });
 
+  const createReservation = api.reservation.createReservation.useMutation();
   //state
   const [name, setName] = useState("");
   const [date, setDate] = useState(new Date());
@@ -28,12 +29,11 @@ const Home: NextPage = () => {
 
   const handleSubmit = () => {
     date.setHours(time);
-    const reservationInfo: ReservationI = {
-      name,
-      phone,
-      people,
-      date,
-    };
+    try {
+      createReservation.mutate({ name, phone, people, date });
+    } catch (err) {
+      console.log(err);
+    }
   };
   //
   return (
