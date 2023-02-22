@@ -20,7 +20,7 @@ export const reservationRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ input, ctx }) => {
-      return ctx.prisma.reservation.create({
+      return await ctx.prisma.reservation.create({
         data: {
           name: input.name,
           phone: input.phone,
@@ -29,4 +29,7 @@ export const reservationRouter = createTRPCRouter({
         },
       });
     }),
+  getReservations: publicProcedure.query(async ({ ctx }) => {
+    return await ctx.prisma.reservation.findMany();
+  }),
 });
