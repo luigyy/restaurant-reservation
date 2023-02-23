@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import { useState } from "react";
+import Link from "next/link";
 
 import { api } from "../utils/api";
 
@@ -38,6 +39,13 @@ const Home: NextPage = () => {
   //
   return (
     <>
+      <Link
+        href="reservations"
+        className="  absolute top-5 right-5 rounded-lg bg-green-600 px-3 py-2 text-xl text-zinc-800 md:right-11"
+      >
+        Reservations
+      </Link>
+      ;
       <main className="min-h-1/2 absolute bottom-[50%] right-[50%] mx-auto w-3/4 max-w-[600px] translate-x-1/2 translate-y-1/2 border-2 border-orange-800/40 px-5">
         <h1 className="pt-5 text-center text-3xl">Make a Reserve</h1>
 
